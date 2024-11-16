@@ -152,10 +152,10 @@ npm run dev
 
 then 2 apps runnings in `localhost:8000` Backend and `localhost:5173` the Frontend.
 
-## Using Docker
+## Using Docker(manually)
 
-### Manually 
 
+Run the Docker. <br/>
 Pull the backend image
 ```bash
 docker pull arup1221/chocolate-backend
@@ -177,18 +177,23 @@ Run the Frontend container
 docker run -d -p 5173:5173 arup1221/chocolate-frontend
 ```
 
-and the 2 apps runnings in `localhost:8000` Backend and `localhost:5173` the Frontend.
+Then the 2 apps runnings in `localhost:8000` Backend and `localhost:5173` the Frontend.<br/>
 
+Access the frontend
 
-### Automatic 
+```bash
+http://localhost:5173/
+```
 
-Fork and clone the repo 
+## Docker(Automatic) 
 
+Fork and clone the repo  <br/>
+Then Run the Docker. <br/>
 ```bash
  git clone https://github.com/arup1221/L7-Informatics-Task.git
 ```
 
-then go to the L7-Informatics-Task
+then go to the L7-Informatics-Task and run the Docker. <br/>
 
 ```bash
 cd L7-Informatics-Task
@@ -198,6 +203,13 @@ Then Start both containers
 
 ```bash
 docker-compose up -d
+```
+
+Then the 2 apps runnings in `localhost:8000` Backend and `localhost:5173` the Frontend.<br/>
+Access the frontend
+
+```bash
+http://localhost:5173/
 ```
 
 To stop and remove containers
