@@ -11,7 +11,7 @@ default run on ``` http://127.0.0.1:8000/ ``` <br/><br/>
 
 ```api/seasonal-flavors/ ``` <br/>
 GET: to get all items<br/>
-GET/<id>: to get one element in specific id
+GET/{id}: to get one element in specific id
 ```api/seasonal-flavors/2/ ``` <br/>
 POST: To create  <br/>
 
@@ -38,8 +38,9 @@ DELETE/<id>: to Delete item
 #### 2. Ingredients API
 
 ```api/ingredients/ ``` <br/><br/>
+
 GET: to get all items<br/>
-GET/<id>: to get one element in specific id
+GET/{id}: to get one element in specific id
 ```api/ingredients/2/ ``` <br/>
 POST: To create  <br/>
 
@@ -66,7 +67,7 @@ DELETE/<id>: to Delete item <br/>
 
 ```api/customer-suggestions/ ``` <br/><br/>
 GET: to get all items<br/>
-GET/<id>: to get one element in specific id
+GET/{id}: to get one element in specific id
 ```api/customer-suggestions/2/ ``` <br/>
 POST: To create  <br/>
 
