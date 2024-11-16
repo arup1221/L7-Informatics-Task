@@ -105,7 +105,7 @@ I have created a minimum frontend for the project with Home Page, Seasonal Flavo
 ![My Project Screenshot](images/img4.png "Project Overview")
 ![My Project Screenshot](images/img5.png "Project Overview")
 
-
+checkout other UI/Frontend images in images folder
 ## How to run the project:
 
 fork and clone the repo: 
