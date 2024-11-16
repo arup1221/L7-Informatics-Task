@@ -106,7 +106,7 @@ I have created a minimum frontend for the project with Home Page, Seasonal Flavo
 ![My Project Screenshot](images/img5.png "Project Overview")
 
 
-## How to use the project:
+## How to run the project:
 
 fork and clone the repo: 
 ```bash
