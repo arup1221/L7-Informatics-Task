@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  backend:
+    image: arup1221/chocolate-backend
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: arup1221/chocolate-frontend
+    ports:
+      - "5173:5173"
