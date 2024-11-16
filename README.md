@@ -30,9 +30,9 @@ sample data:
 }
 
 ```
-PUT or PATCH /<id> : to update data 
+PUT or PATCH /{id}: to update data 
 
-DELETE/<id>: to Delete item
+DELETE/{id}: to Delete item
 
 
 #### 2. Ingredients API
@@ -58,9 +58,9 @@ sample data:
 
 
 ```
-PUT or PATCH /<id> : to update data  <br/>
+PUT or PATCH /{id}: to update data  <br/>
 
-DELETE/<id>: to Delete item <br/>
+DELETE/{id}: to Delete item <br/>
 
 
 #### 3. Customer Suggestions API
