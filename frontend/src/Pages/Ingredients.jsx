@@ -1,12 +1,12 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   getIngredients,
   createIngredient,
   updateIngredient,
   deleteIngredient,
-} from "../api"; 
-import { FaArrowLeft } from "react-icons/fa"; 
+} from "../api";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Ingredients = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -20,7 +20,7 @@ const Ingredients = () => {
   });
 
   const [editIngredient, setEditIngredient] = useState(null);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchIngredients();
@@ -49,7 +49,7 @@ const Ingredients = () => {
     e.preventDefault();
     try {
       await createIngredient(newIngredient);
-      fetchIngredients(); 
+      fetchIngredients();
       setNewIngredient({
         name: "",
         quantity_in_stock: 0,
@@ -67,7 +67,7 @@ const Ingredients = () => {
     e.preventDefault();
     try {
       await updateIngredient(id, editIngredient);
-      fetchIngredients(); 
+      fetchIngredients();
       setEditIngredient(null);
     } catch (error) {
       console.error("Error updating ingredient:", error);
@@ -77,14 +77,14 @@ const Ingredients = () => {
   const handleDelete = async (id) => {
     try {
       await deleteIngredient(id);
-      fetchIngredients(); 
+      fetchIngredients();
     } catch (error) {
       console.error("Error deleting ingredient:", error);
     }
   };
 
   const handleBack = () => {
-    navigate("/"); 
+    navigate("/");
   };
 
   return (
@@ -148,15 +148,20 @@ const Ingredients = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded-md"
           />
-          <input
-            type="text"
+          <select
             name="ingredient_type"
             value={newIngredient.ingredient_type}
             onChange={handleChange}
-            placeholder="Ingredient Type"
             className="w-full p-2 border border-gray-300 rounded-md"
             required
-          />
+          >
+            <option value="">Select Ingredient Type</option>
+            <option value="dairy">Dairy</option>
+            <option value="sugar">Sugar</option>
+            <option value="flavoring">Flavoring</option>
+            <option value="additive">Additive</option>
+          </select>
+
           <button
             type="submit"
             className="bg-blue-500 text-white p-2 rounded-md"
@@ -247,13 +252,17 @@ const Ingredients = () => {
             <p>
               Ingredient Type:{" "}
               {editIngredient && editIngredient.id === ingredient.id ? (
-                <input
-                  type="text"
+                <select
                   value={editIngredient.ingredient_type}
                   onChange={handleEditChange}
                   name="ingredient_type"
                   className="w-full p-2 border border-gray-300 rounded-md mb-2"
-                />
+                >
+                  <option value="dairy">Dairy</option>
+                  <option value="sugar">Sugar</option>
+                  <option value="flavoring">Flavoring</option>
+                  <option value="additive">Additive</option>
+                </select>
               ) : (
                 ingredient.ingredient_type
               )}

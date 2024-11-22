@@ -1,11 +1,11 @@
-import  { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import {
   getSuggestions,
   createSuggestion,
   updateSuggestion,
   deleteSuggestion,
-} from "../api"; 
+} from "../api";
 
 const CustomerSuggestions = () => {
   const [suggestions, setSuggestions] = useState([]);
@@ -18,7 +18,6 @@ const CustomerSuggestions = () => {
   });
   const [editingSuggestion, setEditingSuggestion] = useState(null);
 
-  
   useEffect(() => {
     const fetchSuggestions = async () => {
       const data = await getSuggestions();
@@ -56,7 +55,7 @@ const CustomerSuggestions = () => {
       await updateSuggestion(editingSuggestion.id, editingSuggestion);
       const updatedSuggestions = await getSuggestions();
       setSuggestions(updatedSuggestions);
-      setEditingSuggestion(null); 
+      setEditingSuggestion(null);
     }
   };
 
@@ -234,7 +233,7 @@ const CustomerSuggestions = () => {
               {editingSuggestion && editingSuggestion.id === suggestion.id ? (
                 <div>
                   <button
-                    onClick={handleUpdate} 
+                    onClick={handleUpdate}
                     className="bg-yellow-500 text-white p-2 rounded-md mr-2"
                   >
                     Update

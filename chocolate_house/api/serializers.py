@@ -5,12 +5,15 @@ from decimal import Decimal
 class SeasonalFlavorSerializer(serializers.ModelSerializer):
     class Meta:
         model = SeasonalFlavor
-        fields = '__all__'  
+        fields = '__all__'
+    
+    def validate(self, data):
+        if data['availability_start'] > data['availability_end']:
+            raise serializers.ValidationError({
+                "availability_start": "Start date must be before end date."
+            })
+        return data
 
-    def validate_rating(self, value):
-        if value < Decimal('0.0') or value > Decimal('5.0'):
-            raise serializers.ValidationError("Rating must be between 0 and 5")
-        return value
 
 
 class IngredientSerializer(serializers.ModelSerializer):

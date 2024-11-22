@@ -5,6 +5,7 @@ from rest_framework.decorators import action
 from .models import SeasonalFlavor, Ingredient, CustomerSuggestion
 from .serializers import SeasonalFlavorSerializer, IngredientSerializer, CustomerSuggestionSerializer
 from rest_framework import viewsets
+from rest_framework.generics import get_object_or_404
 
 
 ################################################# Seasonal Flavor API #################################################
@@ -24,20 +25,12 @@ class SeasonalFlavorViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
-        try:
-            flavor = SeasonalFlavor.objects.get(pk=pk)
-        except SeasonalFlavor.DoesNotExist:
-            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-        
+        flavor = get_object_or_404(SeasonalFlavor, pk=pk)
         serializer = SeasonalFlavorSerializer(flavor)
         return Response(serializer.data)
 
     def update(self, request, pk=None):
-        try:
-            flavor = SeasonalFlavor.objects.get(pk=pk)
-        except SeasonalFlavor.DoesNotExist:
-            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-        
+        flavor = get_object_or_404(SeasonalFlavor, pk=pk)
         serializer = SeasonalFlavorSerializer(flavor, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -45,11 +38,7 @@ class SeasonalFlavorViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def partial_update(self, request, pk=None):
-        try:
-            flavor = SeasonalFlavor.objects.get(pk=pk)
-        except SeasonalFlavor.DoesNotExist:
-            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-        
+        flavor = get_object_or_404(SeasonalFlavor, pk=pk)
         serializer = SeasonalFlavorSerializer(flavor, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
@@ -57,11 +46,7 @@ class SeasonalFlavorViewSet(viewsets.ViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def destroy(self, request, pk=None):
-        try:
-            flavor = SeasonalFlavor.objects.get(pk=pk)
-        except SeasonalFlavor.DoesNotExist:
-            return Response({"detail": "Not found."}, status=status.HTTP_404_NOT_FOUND)
-        
+        flavor = get_object_or_404(SeasonalFlavor, pk=pk)
         flavor.delete()
         return Response({"detail": "Deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
